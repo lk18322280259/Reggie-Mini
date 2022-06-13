@@ -8,9 +8,7 @@
 #### 软件架构
 使用SpringBoot开发，前端使用Vue框架实现前后端分离，持久层使用MybatisPlus框架，
 数据库使用MySQL5.7，订单信息及详情通过Kfaka消息队列发送到MongoDB中保存，
-MySQL采用了主从复制存储数据，部分数据采用SpringData缓存到Redis中，
-同时Redis也采用了主从复制，且MySQL和Redis从数据库都不允许增加(Create)、更新(Update)和删除(Delete)
-只允许主数据库进行增加(Create)、更新(Update)和删除(Delete)，从数据库读取查询(Retrieve)
+部分数据采用SpringData缓存到Redis中，
 
 #### 安装教程
 1. SpringBoot 2.4.5
