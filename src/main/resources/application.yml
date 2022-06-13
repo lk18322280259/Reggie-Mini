@@ -1,0 +1,85 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: reggie_take_out
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://10.0.8.15:3306/reggie?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: root
+      password: MySQL5.7
+
+#43.138.111.63
+#10.0.8.15
+# redis缓存数据
+  redis:
+    host: 10.0.8.15
+    port: 6379
+    database: 0
+    jedis:
+      pool:
+        max-active: 512
+        max-idle: 256
+        min-idle: 256
+        max-wait: -1
+  cache:
+    redis:
+      time-to-live: 1800000 #设置缓存过期时间（ms）
+
+  # mongodb存储订单信息
+  data:
+    mongodb:
+      # 主机地址
+      host: 10.0.8.15
+      # 数据库
+      database: reggiedb
+      # 默认端口是27017
+      port: 27017
+      # 也可以使用uri连接
+      # uri: mongodb://192.168.40.134:27017/articledb
+
+
+# MybatisPlus
+mybatis-plus:
+  configuration:
+    #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: ASSIGN_ID
+
+# 自定义参数
+custom-parameters:
+  # 图片相关参数
+  path:
+    # 图片保存路径
+    enable-linux: true
+    # centos保存路径
+    save-image-path-linux: /root/springboot-project/reggie/upload/
+    # windows保存路径
+    save-image-path-windows: D:\Java\项目\瑞吉外卖\myCode\upload\
+
+  # 短信验证码
+  send-msg:
+    # 是否启用短信发送验证码
+    enable: true
+    # 腾讯云账户密钥对Id
+    secret-id: AKIDX0V3SjmbGwdM1c8whMxRTXaVHqFYikeL
+    # 腾讯云账户密钥对Key
+    secret-key: c5OfwFZoHZlssjZJxhIgu7Nf2SsLuMn6
+    # SDK默认超时时间
+    conn-timeout: 5
+    # 短信应用ID
+    sdk-app-id: 1400677800
+    # 短信签名
+    sign-name: 蛋蛋编程
+    # 模板ID
+    template-id: 1401840
+    # 消息头
+    msg-head: 【瑞吉外卖】
+
+  # cookie
+  cookie:
+    enable: true
