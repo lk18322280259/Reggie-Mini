@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8686
 spring:
   application:
     name: reggie_take_out
@@ -57,7 +57,7 @@ custom-parameters:
     # 图片保存路径
     enable-linux: true
     # centos保存路径
-    save-image-path-linux: /root/springboot-project/reggie/upload/
+    save-image-path-linux: /root/project/reggie/upload/
     # windows保存路径
     save-image-path-windows: D:\Java\项目\瑞吉外卖\myCode\upload\
 
